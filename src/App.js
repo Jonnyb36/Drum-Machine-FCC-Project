@@ -31,6 +31,11 @@ export default class App extends Component {
 
   }
 
+  handleKeyPress = e => {
+    if(e.key === 'Enter'){
+      console.log('enter press here! ')
+    }
+  }
 
 
   
@@ -45,7 +50,7 @@ export default class App extends Component {
               </Row>
               <Row>
                 <Col md={{ size: 4, offset: 4 }}>
-                  <DrumMachineBody onClick={this.buttonOnClick}/>
+                  <DrumMachineBody onClick={this.buttonOnClick} onKeyPress={this.handleKeyPress}/>
                 </Col>
               </Row>
         </Container>
