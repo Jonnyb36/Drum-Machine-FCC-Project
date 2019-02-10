@@ -4,7 +4,7 @@ import {Container, Row, Col} from 'reactstrap';
 import './App.css';
 import {Display} from './Display';
 import {DrumMachineBody} from './DrumMachineBody';
-import {availableKeys} from './consts';
+import {availableKeys} from './DrumSounds';
 
 
 export default class App extends Component {
@@ -24,12 +24,18 @@ export default class App extends Component {
     document.body.appendChild(script);
   }
 
+  playMusic = (audioSrc) => {
+    const music = new Audio(audioSrc);
+    music.play();
+  }
+
 
   buttonOnClick = e => {
     this.setState({
       screenValue: e.target.id
     })
-
+    //play audio
+    this.playMusic(e.target.children[e.target.value].src);
   }
 
   handleKeyPress = e => {
@@ -39,6 +45,8 @@ export default class App extends Component {
         screenValue: keyValue
       })
     }
+    //play audio
+    this.playMusic(e.target.children[e.target.value].src);
   }
 
 
