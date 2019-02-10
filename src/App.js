@@ -1,28 +1,54 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+import {Container, Row, Col} from 'reactstrap';
+//import logo from './logo.svg';
 import './App.css';
+import {Display} from './Display';
+import {DrumMachineBody} from './DrumMachineBody';
 
-class App extends Component {
+
+export default class App extends Component {
+  constructor(props){
+    super(props);
+    this.state = {
+      screenValue: null,
+    };
+  }
+
+  componentDidMount () {
+    const script = document.createElement("script");
+
+    script.src = "https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js";
+    script.async = true;
+
+    document.body.appendChild(script);
+  }
+
+
+  buttonOnClick = e => {
+    this.setState({
+      screenValue: e.target.id
+    })
+
+  }
+
+
+
+  
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+        <Container className="App" id="drum-machine">
+              <Row style={{height:30}}/>
+              <Row>
+                <Col md={{ size: 4, offset: 4 }}>
+                  <Display value={this.state.screenValue}/>
+                </Col>
+              </Row>
+              <Row>
+                <Col md={{ size: 4, offset: 4 }}>
+                  <DrumMachineBody onClick={this.buttonOnClick}/>
+                </Col>
+              </Row>
+        </Container>
     );
   }
 }
-
-export default App;
