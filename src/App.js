@@ -24,36 +24,29 @@ export default class App extends Component {
     document.body.appendChild(script);
   }
 
-  playMusic = (audioSrc) => {
-    const music = new Audio(audioSrc);
-    music.play();
-  }
-
-
   buttonOnClick = e => {
     this.setState({
       screenValue: e.target.id
     })
     //play audio
-    this.playMusic(e.target.children[e.target.value].src);
+    e.target.children[e.target.value].play()
   }
 
   handleKeyPress = e => {
-    const keyValue = availableKeys[e.key];
+    const keyUpper = e.key.toUpperCase();
+    const keyValue = availableKeys[keyUpper];
     if(keyValue){
       this.setState({
-        screenValue: keyValue
+        screenValue: keyValue.name
       })
+      //play audio
+      document.getElementById(keyValue.name).children[keyUpper].play();
     }
-    //play audio
-    this.playMusic(e.target.children[e.target.value].src);
   }
-
-
   
   render() {
     return (
-        <Container className="App" id="drum-machine">
+        <Container className="App" id="drum-machine" onKeyPress={this.handleKeyPress}>
               <Row style={{height:30}}/>
               <Row>
                 <Col md={{ size: 4, offset: 4 }}>
@@ -62,7 +55,7 @@ export default class App extends Component {
               </Row>
               <Row>
                 <Col md={{ size: 4, offset: 4 }}>
-                  <DrumMachineBody onClick={this.buttonOnClick} onKeyPress={this.handleKeyPress}/>
+                  <DrumMachineBody onClick={this.buttonOnClick}/>
                 </Col>
               </Row>
         </Container>

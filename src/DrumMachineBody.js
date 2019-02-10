@@ -5,7 +5,7 @@ import {Drum_Pad} from './Drum_Pad';
 export const DrumMachineBody = props => {
     //create a grid for all numbers
     return <>
-            <Row noGutters onKeyPress={props.onKeyPress}>
+            <Row noGutters>
                 <Col>
                     <Row noGutters> 
                         <Col xs="4">
