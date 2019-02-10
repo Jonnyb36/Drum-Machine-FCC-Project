@@ -4,6 +4,7 @@ import {Container, Row, Col} from 'reactstrap';
 import './App.css';
 import {Display} from './Display';
 import {DrumMachineBody} from './DrumMachineBody';
+import {availableKeys} from './consts';
 
 
 export default class App extends Component {
@@ -32,8 +33,11 @@ export default class App extends Component {
   }
 
   handleKeyPress = e => {
-    if(e.key === 'Enter'){
-      console.log('enter press here! ')
+    const keyValue = availableKeys[e.key];
+    if(keyValue){
+      this.setState({
+        screenValue: keyValue
+      })
     }
   }
 

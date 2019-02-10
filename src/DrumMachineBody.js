@@ -9,35 +9,35 @@ export const DrumMachineBody = props => {
                 <Col>
                     <Row noGutters> 
                         <Col xs="4">
-                            <Drum_Pad id="one" value="Q" onClick={props.onClick} />
+                            <Drum_Pad value="Q" onClick={props.onClick} />
                         </Col>
                         <Col xs="4">
-                            <Drum_Pad id="two" value="W" onClick={props.onClick} />
+                            <Drum_Pad value="W" onClick={props.onClick} />
                         </Col>
                         <Col xs="4">
-                            <Drum_Pad id="three" value="E" onClick={props.onClick} />
-                        </Col>
-                    </Row>
-                    <Row noGutters>
-                        <Col xs="4">
-                            <Drum_Pad id="four" value="A" onClick={props.onClick} />
-                        </Col>
-                        <Col xs="4">
-                            <Drum_Pad id="five" value="S" onClick={props.onClick} />
-                        </Col>
-                        <Col xs="4">
-                            <Drum_Pad id="six" value="D" onClick={props.onClick} />
+                            <Drum_Pad value="E" onClick={props.onClick} />
                         </Col>
                     </Row>
                     <Row noGutters>
                         <Col xs="4">
-                            <Drum_Pad id="seven" value="Z" onClick={props.onClick} />
+                            <Drum_Pad value="A" onClick={props.onClick} />
                         </Col>
                         <Col xs="4">
-                            <Drum_Pad id="eight" value="X" onClick={props.onClick} />
+                            <Drum_Pad value="S" onClick={props.onClick} />
                         </Col>
                         <Col xs="4">
-                            <Drum_Pad id="nine" value="C" onClick={props.onClick} />
+                            <Drum_Pad value="D" onClick={props.onClick} />
+                        </Col>
+                    </Row>
+                    <Row noGutters>
+                        <Col xs="4">
+                            <Drum_Pad value="Z" onClick={props.onClick} />
+                        </Col>
+                        <Col xs="4">
+                            <Drum_Pad value="X" onClick={props.onClick} />
+                        </Col>
+                        <Col xs="4">
+                            <Drum_Pad value="C" onClick={props.onClick} />
                         </Col>
                     </Row>
                 </Col>
